@@ -78,10 +78,9 @@ const stylesFormLogin = StyleSheet.create({
         alignSelf: 'flex-start',
     },
     input: {
-        borderColor: '#fff',
+        borderColor: 'rgba(0, 0, 0, 0.45)',
         borderBottomColor: '#ccc',
         borderWidth: 1,
-        borderRadius: 4,
         paddingVertical: 8,
         paddingHorizontal: 12,
         marginBottom: 16,
