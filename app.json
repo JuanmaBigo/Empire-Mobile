@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "empire-app",
-    "slug": "empire-app",
+    "name": "empire-mobile-app",
+    "slug": "empire-mobile-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
