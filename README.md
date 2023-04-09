@@ -1,1 +1,1 @@
-# empire-app-mobile
+# empire-mobile-app
