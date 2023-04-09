@@ -49,8 +49,8 @@ export default function AppStack() {
             <Drawer.Screen name="SERVICE" component={Service} />
             <Drawer.Screen name="AI ENGINE" component={AIEngine} />
 
-            <Drawer.Screen name="LOGIN" component={Login} />
-            <Drawer.Screen name="REGISTER" component={Register} />
+            <Drawer.Screen name="Login" component={Login} />
+            <Drawer.Screen name="Register" component={Register} />
 
         </Drawer.Navigator>
     )

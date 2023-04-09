@@ -51,7 +51,6 @@ const CustomDrawer = (props) => {
                 setLoading(false)
                 dispatch(reloadDrawer({ state: !state }))
         } catch (error) {
-            setLoading(false)
             console.log(error)
         }
     }
