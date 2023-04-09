@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Image, ImageBackground, TextInput, TouchableOpacity, View, Text } from 'react-native';
-import TextStyled from './TextStyled';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import drawerActions from '../store/Drawer/actions.js';

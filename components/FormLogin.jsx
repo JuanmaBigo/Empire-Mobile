@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Image, ImageBackground, TextInput, TouchableOpacity, View, Text } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import TextStyled from './TextStyled';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from 'react-redux';
