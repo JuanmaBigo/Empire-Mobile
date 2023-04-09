@@ -45,7 +45,7 @@ export default function App() {
         try {
             await axios.post(url, data)
             dispatch(reloadDrawer({ state: !state }))
-            setAlertMessage('User created successfully, please check your email to verify your account')
+            setAlertMessage('User created successfully')
             dispatch(reloadDrawer({ state: !state }))
             setLoading(false)
             setAlert(true)

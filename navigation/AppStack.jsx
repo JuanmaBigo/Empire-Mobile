@@ -3,19 +3,24 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import CustomDrawer from '../components/CustomDrawer';
 
+
+import Hero from '../screens/Hero'
 import Home from '../screens/Home';
-import Mangas from '../screens/Mangas';
-import MangaDetails from '../screens/MangaDetails';
+import Vehicles from '../screens/Vehicles'
+import ArtAndCulture from '../screens/ArtAndCulture'
+import Service from '../screens/Service'
+import AIEngine from '../screens/AIEngine'
+
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
 
-function DetailsStack() {
+function HomeStack() {
     return (
         <Stack.Navigator >
-            <Stack.Screen name="ListMangas" component={Mangas} options={{ headerShown: false }} />
-            <Stack.Screen name="MangaDetails" component={MangaDetails} options={{ headerShown: false }} />
+            <Stack.Screen name="Hero" component={Hero} options={{ headerShown: false }} /> 
+            <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} /> 
         </Stack.Navigator>
     );
 }
@@ -35,11 +40,15 @@ export default function AppStack() {
                 },
                 swipeEdgeWidth: 70,
             }}>
+
             <Drawer.Screen name="HOME" component={Home} />
-            <Drawer.Screen name="ART & CULTURE" component={DetailsStack} />
-            <Drawer.Screen name="VEHICLES" component={DetailsStack} />
-            <Drawer.Screen name="AI ENGINE" component={DetailsStack} />
-            <Drawer.Screen name="CART" component={DetailsStack} />
+            <Drawer.Screen name="VEHICLES" component={Vehicles} />
+            <Drawer.Screen name="ART & CULTURE" component={ArtAndCulture} />
+            <Drawer.Screen name="SERVICE" component={Service} />
+            <Drawer.Screen name="AI ENGINE" component={AIEngine} />
+
+            {/* <Drawer.Screen name="CART" component={HomeStack} /> */}
+            
         </Drawer.Navigator>
     )
 }
