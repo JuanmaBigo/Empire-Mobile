@@ -12,6 +12,7 @@ import Vehicles from '../screens/Vehicles'
 import ArtAndCulture from '../screens/ArtAndCulture'
 import Service from '../screens/Service'
 import AIEngine from '../screens/AIEngine'
+import TourMuseum from '../screens/TourMuseum';
 
 
 const Drawer = createDrawerNavigator();
@@ -23,6 +24,15 @@ function HomeStack() {
             <Stack.Screen name="Hero" component={Hero} options={{ headerShown: false }} /> 
             <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} /> 
         </Stack.Navigator>
+    );
+}
+function CultureStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='ArtAndCulture' component={ArtAndCulture} options={{ headerShown: false }} />
+            <Stack.Screen name='TourMuseum' component={TourMuseum} options={{ headerShown: false }} />
+        </Stack.Navigator>
+
     );
 }
 
@@ -45,7 +55,7 @@ export default function AppStack() {
 
             <Drawer.Screen name="HOME" component={HomeStack} />
             <Drawer.Screen name="VEHICLES" component={Vehicles} />
-            <Drawer.Screen name="ART & CULTURE" component={ArtAndCulture} />
+            <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICE" component={Service} />
             <Drawer.Screen name="AI ENGINE" component={AIEngine} />
 
