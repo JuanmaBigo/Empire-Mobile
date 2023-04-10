@@ -26,7 +26,7 @@ export default function Hero() {
                 onError={(error) => console.log(error)}
             >
             </Video>
-            <ImageBackground source={require('../assets/image/logo.png')} style={{ position: 'absolute', height: 250, width: 200, top: 250, alignSelf: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center',opacity:0.5 }}>
+            <ImageBackground source={require('../assets/image/logo.png')} style={{ position: 'absolute', height: 250, top: 250, alignSelf: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center',opacity:0.5 }}>
                 <Text style={{color: '#fff', fontSize: 55, marginLeft: -7}}>EMPIRE</Text>
             </ImageBackground>
             <TouchableOpacity onPress={handleNavigate} style={{ position: 'absolute', bottom: 150, backgroundColor: '#fff', alignSelf: 'center', opacity: 0.8, elevation: 3 }}>

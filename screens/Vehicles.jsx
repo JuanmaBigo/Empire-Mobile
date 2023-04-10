@@ -6,12 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 export default function Vehicles() {
     const navigation = useNavigation();
     function handleNavigate() {
-        navigation.navigate('Contac Us')
+        // navigation.navigate('Contact Us')
     }
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={{ uri: 'https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/gateway/ownership/s/gate_ownership_s1_03.jpg' }} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <ImageBackground source={require('../assets/image/vehicles-bg.jpg')} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <View style={styles.sectionBtnMuseumTour}>
                     <Animatable.View animation="slideInDown" duration={2000} style={{ backgroundColor: 'black', marginTop: 200, height: 40, width: 150, paddingTop: 20, alignItems: 'center', justifyContent: 'center' }}>
                         <TouchableOpacity onPress={handleNavigate} style={styles.touchableOpacity}>
