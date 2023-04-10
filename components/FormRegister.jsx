@@ -10,12 +10,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const { reloadDrawer } = drawerActions
 
-import styles from './styles.js';
-const { stylesFormLogin } = styles;
-
 
 export default function App() {
-    let styles = stylesFormLogin;
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -78,7 +74,7 @@ export default function App() {
 
     return (
         <View style={{ flex: 1, width: '100%', height: '100%', alignItems: 'center' }}>
-            <ImageBackground source={require('../assets/image/register-background.png')} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center' }}>
+            <ImageBackground source={require('../assets/image/register-bg.jpg')} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center' }}>
                 <Image source={require('../assets/image/text-register.png')} style={{ width: '90%', height: '30%', objectFit: 'contain', marginTop: 30 }} />
 
                 <View style={{ display: 'flex', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.45)', width: '80%', paddingTop: 40, paddingBottom: 46, marginTop: 20, justifyContent: 'center' }}>

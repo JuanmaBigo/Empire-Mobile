@@ -13,12 +13,8 @@ const { read_mangas } = mangaActions
 const { reloadDrawer } = drawerActions
 
 
-import styles from './styles.js';
-const { stylesFormLogin } = styles;
-
 
 export default function App() {
-    let styles = stylesFormLogin;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
@@ -63,7 +59,7 @@ export default function App() {
 
     return (
         <View style={{ flex: 1, width: '100%', height: '100%' }}>
-            <ImageBackground source={require('../assets/image/login-background.png')} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center' }}>
+            <ImageBackground source={require('../assets/image/login-bg.jpg')} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center' }}>
                 <Image source={require('../assets/image/text-login.png')} style={{ width: '90%', height: '30%', objectFit: 'contain', marginTop: 30}} />
 
                 <View style={{ display: 'flex', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.45)', width: '80%', paddingTop: 60, paddingBottom: 46, marginTop: 80, justifyContent: 'center' }}>
@@ -73,8 +69,8 @@ export default function App() {
                     <TextInput style={{ width: '88%', fontSize: 18, marginTop: 50, color: 'white' }} placeholderTextColor='rgba(255, 255, 255, 0.8)' placeholder="PASSWORD" value={password} secureTextEntry onChangeText={setPassword} />
                     <View style={{ borderColor: 'white', width: '90%', height: 1, borderWidth: 1, }} />
 
-                    <TouchableOpacity activeOpacity={0.8} style={{ backgroundColor: 'black', marginTop: 30 }} onPress={handleLogin}>
-                        <Text style={{ color: '#fff', fontSize: 20, fontWeight: 600, paddingHorizontal: 40, paddingVertical: 10 }}>SIGN IN</Text>
+                    <TouchableOpacity activeOpacity={0.8} style={{ backgroundColor: 'white', marginTop: 30 }} onPress={handleLogin}>
+                        <Text style={{ color: 'black', fontSize: 20, fontWeight: 600, paddingHorizontal: 40, paddingVertical: 10 }}>SIGN IN</Text>
                     </TouchableOpacity>
 
                     <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginTop: 16 }}>
