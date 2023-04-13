@@ -48,6 +48,7 @@ export default function App() {
             setLoading(false)
             dispatch(reloadDrawer({ state: !state }))
         } catch (error) {
+            console.log(error)
             setLoading(false)
             setAlert(true)
         }
