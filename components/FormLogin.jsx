@@ -8,8 +8,6 @@ import { useNavigation } from '@react-navigation/native';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { REACT_APP_URL } from '@env'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import mangaActions from '../store/Mangas/actions';
-const { read_mangas } = mangaActions
 const { reloadDrawer } = drawerActions
 
 
@@ -44,7 +42,6 @@ export default function App() {
                         mail: res.data.user.mail,
                     }))
                 })
-            dispatch(read_mangas({ inputText: '', inputPage: 1 }))
             setLoading(false)
             dispatch(reloadDrawer({ state: !state }))
         } catch (error) {
