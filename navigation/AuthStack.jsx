@@ -39,6 +39,8 @@ function CultureStack() {
 
     );
 }
+
+   
 function VehiclesStack() {
     return (
         <Stack.Navigator>

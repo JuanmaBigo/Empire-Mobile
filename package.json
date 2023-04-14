@@ -11,7 +11,10 @@
   "dependencies": {
     "@expo-google-fonts/montserrat": "^0.2.3",
     "@react-native-async-storage/async-storage": "1.17.11",
+<<<<<<< HEAD
     "@react-native-picker/picker": "2.4.8",
+=======
+>>>>>>> 11c739b3b1dd232add2b9783f389145a2fe0c4ef
     "@react-navigation/drawer": "^6.6.2",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
