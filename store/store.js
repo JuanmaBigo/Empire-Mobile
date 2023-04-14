@@ -10,6 +10,9 @@ import modalEdit_reducer from './ModalEdit/reducer'
 import drawerReducer from './Drawer/reducer' 
 import carReducer from "./Cars/reducer";
 import colorsReducer from "./Colors/reducer";
+import modelReducer from "./model/reducer"
+import categoriesReducer from './categories/reducer'
+
 
 export const store = configureStore({
     reducer:{
@@ -22,5 +25,7 @@ export const store = configureStore({
         drawerReducer: drawerReducer,
         car: carReducer,
         colors: colorsReducer
+        model: modelReducer,
+        category: categoriesReducer
     }
 })

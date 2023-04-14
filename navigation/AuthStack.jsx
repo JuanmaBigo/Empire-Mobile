@@ -13,9 +13,9 @@ import ArtAndCulture from '../screens/ArtAndCulture'
 import Service from '../screens/Service'
 import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
-
 import Videito from '../screens/Videoo';
 import Custom from '../screens/Custom'
+import SelectModel from '../screens/SelectModel';
 
 
 const Drawer = createDrawerNavigator();
@@ -39,6 +39,14 @@ function CultureStack() {
     );
 }
 
+   
+function VehiclesStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
+            <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
+        </Stack.Navigator>
+    );}
 
 export default function AppStack() {
 
@@ -57,11 +65,10 @@ export default function AppStack() {
             }}>
 
             <Drawer.Screen name="HOME" component={HomeStack} />
-            <Drawer.Screen name="VEHICLES" component={Vehicles} />
+            <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={Service} />
             {/* <Drawer.Screen name="AI ENGINE" component={AIEngine} /> */}
-
             <Drawer.Screen name="LOGIN" component={Login} />
             <Drawer.Screen name="REGISTER" component={Register} />
 
