@@ -12,6 +12,7 @@ import Service from '../screens/Service'
 import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
 
+import Custom from '../screens/Custom'
 // import VehicleDetails2 from '../screens/VehicleDetails2';
 
 
@@ -58,10 +59,11 @@ export default function AppStack() {
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={Service} />
             <Drawer.Screen name="AI ENGINE" component={AIEngine} />
-
-            {/* <Drawer.Screen name="VehicleDetails2" component={VehicleDetails2} /> PRUEBA */}
             
-
+            
+            <Drawer.Screen name="CUSTOM" component={Custom} />
+            
+            {/* <Drawer.Screen name="VehicleDetails2" component={VehicleDetails2} /> PRUEBA */}
             {/* <Drawer.Screen name="CART" component={HomeStack} /> */}
 
         </Drawer.Navigator>
