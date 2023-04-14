@@ -12,6 +12,10 @@ import Service from '../screens/Service'
 import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
 
+<<<<<<< HEAD
+import Custom from '../screens/Custom'
+=======
+>>>>>>> 1008b41a5477c6c704467a93081cee36131d6941
 // import VehicleDetails2 from '../screens/VehicleDetails2';
 
 
@@ -58,10 +62,11 @@ export default function AppStack() {
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={Service} />
             <Drawer.Screen name="AI ENGINE" component={AIEngine} />
-
-            {/* <Drawer.Screen name="VehicleDetails2" component={VehicleDetails2} /> PRUEBA */}
             
-
+            
+            <Drawer.Screen name="CUSTOM" component={Custom} />
+            
+            {/* <Drawer.Screen name="VehicleDetails2" component={VehicleDetails2} /> PRUEBA */}
             {/* <Drawer.Screen name="CART" component={HomeStack} /> */}
 
         </Drawer.Navigator>

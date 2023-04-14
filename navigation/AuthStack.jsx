@@ -15,6 +15,7 @@ import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
 
 import Videito from '../screens/Videoo';
+import Custom from '../screens/Custom'
 
 
 const Drawer = createDrawerNavigator();
@@ -64,6 +65,7 @@ export default function AppStack() {
             <Drawer.Screen name="LOGIN" component={Login} />
             <Drawer.Screen name="REGISTER" component={Register} />
 
+            <Drawer.Screen name="CUSTOM" component={Custom} />
             <Drawer.Screen name="VIDEO" component={Videito} />
 
 
