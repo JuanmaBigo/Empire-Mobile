@@ -13,10 +13,7 @@ import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
 
 import Custom from '../screens/Custom'
-<<<<<<< HEAD
 import SelectModel from '../screens/SelectModel';
-=======
->>>>>>> 11c739b3b1dd232add2b9783f389145a2fe0c4ef
 // import VehicleDetails2 from '../screens/VehicleDetails2';
 
 
