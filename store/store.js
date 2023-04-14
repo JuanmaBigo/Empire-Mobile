@@ -8,6 +8,7 @@ import getmangas_reducer from './MyMangas/reducer'
 import modalDelete_reducer from  './ModalDelete/reducer'
 import modalEdit_reducer from './ModalEdit/reducer'
 import drawerReducer from './Drawer/reducer' 
+import modelReducer from "./model/reducer"
 
 export const store = configureStore({
     reducer:{
@@ -19,6 +20,7 @@ export const store = configureStore({
         getmangas: getmangas_reducer,
         showModalDelete: modalDelete_reducer,
         showModalEdit: modalEdit_reducer,
-        drawerReducer: drawerReducer
+        drawerReducer: drawerReducer,
+        model:modelReducer
     }
 })

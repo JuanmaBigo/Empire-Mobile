@@ -11,6 +11,7 @@ import ArtAndCulture from '../screens/ArtAndCulture'
 import Service from '../screens/Service'
 import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
+import Details from  "../screens/Details"
 
 
 const Drawer = createDrawerNavigator();
@@ -55,6 +56,8 @@ export default function AppStack() {
             <Drawer.Screen name="VEHICLES" component={Vehicles} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={Service} />
+            <Drawer.Screen name="DETAILS" component={Details} />
+
             {/* <Drawer.Screen name="AI ENGINE" component={AIEngine} /> */}
 
 

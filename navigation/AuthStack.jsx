@@ -13,7 +13,6 @@ import ArtAndCulture from '../screens/ArtAndCulture'
 import Service from '../screens/Service'
 import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
-
 import Videito from '../screens/Videoo';
 
 
@@ -60,7 +59,6 @@ export default function AppStack() {
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={Service} />
             {/* <Drawer.Screen name="AI ENGINE" component={AIEngine} /> */}
-
             <Drawer.Screen name="LOGIN" component={Login} />
             <Drawer.Screen name="REGISTER" component={Register} />
 
