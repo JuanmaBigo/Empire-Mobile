@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 export default function Vehicles() {
     const navigation = useNavigation();
     function handleNavigate() {
-        // navigation.navigate('Contact Us')
+        navigation.navigate('Select Model')
     }
 
     return (
