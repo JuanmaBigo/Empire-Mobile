@@ -12,6 +12,10 @@ import Service from '../screens/Service'
 import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
 
+import Custom from '../screens/Custom'
+import SelectModel from '../screens/SelectModel';
+// import VehicleDetails2 from '../screens/VehicleDetails2';
+
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -32,7 +36,15 @@ function CultureStack() {
             <Stack.Screen name='ArtAndCulture' component={ArtAndCulture} options={{ headerShown: false }} />
             <Stack.Screen name='TourMuseum' component={TourMuseum} options={{ headerShown: false }} />
         </Stack.Navigator>
+    );
+}
 
+function VehiclesStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
+            <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
+        </Stack.Navigator>
     );
 }
 export default function AppStack() {
@@ -52,12 +64,15 @@ export default function AppStack() {
             }}>
 
             <Drawer.Screen name="HOME" component={Home} />
-            <Drawer.Screen name="VEHICLES" component={Vehicles} />
+            <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
-            <Drawer.Screen name="SERVICE" component={Service} />
+            <Drawer.Screen name="SERVICES" component={Service} />
             <Drawer.Screen name="AI ENGINE" component={AIEngine} />
-
-
+            
+            
+            <Drawer.Screen name="CUSTOM" component={Custom} />
+            
+            {/* <Drawer.Screen name="VehicleDetails2" component={VehicleDetails2} /> PRUEBA */}
             {/* <Drawer.Screen name="CART" component={HomeStack} /> */}
 
         </Drawer.Navigator>

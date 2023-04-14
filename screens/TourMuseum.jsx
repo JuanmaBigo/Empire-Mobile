@@ -6,21 +6,21 @@ import YouTube from 'react-native-youtube';
 export default function TourMuseum() {
   return (
     <View style={styles.museumTourSection}>
-   {/*    <VideoPlayer
+      {/*    <VideoPlayer
         source={{ uri: 'https://www.youtube.com/watch?v=rlbjVAr5SYI&t=8s' }}
         style={styles.videoMuseumTour}
         resizeMode="cover"
         repeat={true}
         muted={true}
       /> */}
- <YouTube
+      {/* <YouTube
         videoId="rlbjVAr5SYI&t"
         style={styles.videoMuseumTour}
         resizeMode="cover"
         repeat={true}
         muted={true}
-      />
-
+      /> */}
+      <Text>Video de tour museo</Text>
     </View>
   );
 }

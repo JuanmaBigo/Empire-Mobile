@@ -11,20 +11,15 @@ export default function ArtAndCulture() {
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={{ uri: 'https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/face_react/museum/2023/01_23/hero/museo_23_hero_01_m.jpg' }} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <ImageBackground source={require('../assets/image/artCulture-bg.jpg')} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <View style={styles.sectionBtnMuseumTour}>
-                    <Animatable.View animation="slideInDown" duration={2000} style={{ backgroundColor: 'black', height: 40, width: 150, paddingTop: 20, alignItems: 'center', justifyContent: 'center' }}>
+                    <Animatable.View animation="slideInDown" duration={2000} style={{ backgroundColor: 'black', height: 40, width: 200, paddingTop: 20, alignItems: 'center', justifyContent: 'center' }}>
                         <TouchableOpacity onPress={handleNavigate} style={styles.touchableOpacity}>
                             <Text style={{ color: 'white', fontSize: 20,marginTop:-18, fontWeight: 'bold', textTransform: 'uppercase' }}>VIRTUAL TOUR</Text>
                         </TouchableOpacity>
                     </Animatable.View>
                 </View>
                 <View style={styles.titlesMuseumPage}>
-                    <Image
-                        source={require('../assets/image/artAndculture.png')}
-                        style={styles.artAndCultureImg}
-                        resizeMode="contain"
-                    />
                     <Image
                         source={require('../assets/image/titleMuseum.png')}
                         style={styles.empireMuseumPageImg}
