@@ -11,6 +11,8 @@ import ArtAndCulture from '../screens/ArtAndCulture'
 import Service from '../screens/Service'
 import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
+import ContactUs from '../screens/ContactUs'
+import Confirm from '../screens/Confirm'
 
 import Custom from '../screens/Custom'
 // import VehicleDetails2 from '../screens/VehicleDetails2';
@@ -37,6 +39,16 @@ function CultureStack() {
         </Stack.Navigator>
     );
 }
+function ServiceStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Service' component={Service} options={{ headerShown: false }} />
+            <Stack.Screen name='ContactUs' component={ContactUs} options={{ headerShown: false }} />
+            <Stack.Screen name='Confirm' component={Confirm} options={{ headerShown: false }} />
+        </Stack.Navigator>
+
+    );
+}
 
 export default function AppStack() {
 
@@ -57,7 +69,7 @@ export default function AppStack() {
             <Drawer.Screen name="HOME" component={Home} />
             <Drawer.Screen name="VEHICLES" component={Vehicles} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
-            <Drawer.Screen name="SERVICES" component={Service} />
+            <Drawer.Screen name="SERVICES" component={ServiceStack} />
             <Drawer.Screen name="AI ENGINE" component={AIEngine} />
             
             
