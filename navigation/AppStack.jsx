@@ -13,8 +13,11 @@ import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
 import ContactUs from '../screens/ContactUs'
 import Confirm from '../screens/Confirm'
+import Details from  "../screens/Details"
+
 
 import Custom from '../screens/Custom'
+import SelectModel from '../screens/SelectModel';
 // import VehicleDetails2 from '../screens/VehicleDetails2';
 
 
@@ -50,6 +53,14 @@ function ServiceStack() {
     );
 }
 
+function VehiclesStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
+            <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
+        </Stack.Navigator>
+    );
+}
 export default function AppStack() {
 
     return (
@@ -67,9 +78,14 @@ export default function AppStack() {
             }}>
 
             <Drawer.Screen name="HOME" component={Home} />
-            <Drawer.Screen name="VEHICLES" component={Vehicles} />
+            <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={ServiceStack} />
+            <Drawer.Screen name="DETAILS" component={Details} />
+
+            {/* <Drawer.Screen name="AI ENGINE" component={AIEngine} /> */}
+
+
             <Drawer.Screen name="AI ENGINE" component={AIEngine} />
             
             
