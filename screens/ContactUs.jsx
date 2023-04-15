@@ -39,7 +39,7 @@ export default function ContactUs() {
             
         <Text style={{color: 'white', fontWeight: 'bold', marginBottom: 5}}>Select an option:</Text>
       <TouchableOpacity style={{ borderWidth: 1, borderColor: '#ccc', borderRadius: 5, padding: 10}} onPress={() => setIsModalVisible(true)}>
-        <Text style={{color: 'white', textAlign: 'center',fontSize: 16}}>{selectedOption || 'Seleccionar'}</Text>
+        <Text style={{color: 'white', textAlign: 'center',fontSize: 16}}>{selectedOption || 'Select'}</Text>
       </TouchableOpacity>
       <Modal visible={isModalVisible} animationType="slide">
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)'}}>
