@@ -59,14 +59,14 @@ export default function AppStack() {
             <Drawer.Screen name="HOME" component={HomeStack} />
             <Drawer.Screen name="VEHICLES" component={Vehicles} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
-            <Drawer.Screen name="SERVICES" component={Service} />
+            <Drawer.Screen name="CONTACT US" component={Service} />
             {/* <Drawer.Screen name="AI ENGINE" component={AIEngine} /> */}
 
             <Drawer.Screen name="LOGIN" component={Login} />
             <Drawer.Screen name="REGISTER" component={Register} />
 
-            <Drawer.Screen name="CUSTOM" component={Custom} />
-            <Drawer.Screen name="VIDEO" component={Videito} />
+            {/* <Drawer.Screen name="CUSTOM" component={Custom} />
+            <Drawer.Screen name="VIDEO" component={Videito} /> */}
 
 
         </Drawer.Navigator>
