@@ -57,6 +57,7 @@ function VehiclesStack() {
         <Stack.Navigator>
             <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
             <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
+            <Drawer.Screen name="DETAILS" component={Details} options={{ headerShown: false }}/>
         </Stack.Navigator>
     );
 }
@@ -82,13 +83,12 @@ export default function AppStack() {
             <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={ServiceStack} />
-            {/* <Drawer.Screen name="AI ENGINE" component={AIEngine} /> */}
+            <Drawer.Screen name="AI ENGINE" component={AIEngine} />
             <Drawer.Screen name="LOGIN" component={Login} />
             <Drawer.Screen name="REGISTER" component={Register} />
 
 
             {/* <Drawer.Screen name="CUSTOM" component={Custom} /> */}
-            <Drawer.Screen name="DETAILS" component={Details} />
 
 
         </Drawer.Navigator>
