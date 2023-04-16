@@ -16,7 +16,7 @@ import TourMuseum from '../screens/TourMuseum';
 import ContactUs from '../screens/ContactUs';
 import Confirm from '../screens/Confirm';
 
-import Videito from '../screens/Videoo';
+import Details from '../screens/Details';
 import Custom from '../screens/Custom'
 import SelectModel from '../screens/SelectModel';
 
@@ -27,8 +27,8 @@ const Stack = createStackNavigator();
 function HomeStack() {
     return (
         <Stack.Navigator >
-            <Stack.Screen name="Hero" component={Hero} options={{ headerShown: false }} /> 
-            <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} /> 
+            <Stack.Screen name="Hero" component={Hero} options={{ headerShown: false }} />
+            <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         </Stack.Navigator>
     );
 }
@@ -51,14 +51,15 @@ function ServiceStack() {
     );
 }
 
-   
+
 function VehiclesStack() {
     return (
         <Stack.Navigator>
             <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
             <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
         </Stack.Navigator>
-    );}
+    );
+}
 
 
 export default function AppStack() {
@@ -85,8 +86,9 @@ export default function AppStack() {
             <Drawer.Screen name="LOGIN" component={Login} />
             <Drawer.Screen name="REGISTER" component={Register} />
 
-            <Drawer.Screen name="CUSTOM" component={Custom} />
-            <Drawer.Screen name="VIDEO" component={Videito} />
+
+            {/* <Drawer.Screen name="CUSTOM" component={Custom} /> */}
+            <Drawer.Screen name="DETAILS" component={Details} />
 
 
         </Drawer.Navigator>

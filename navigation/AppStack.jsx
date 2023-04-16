@@ -82,13 +82,7 @@ export default function AppStack() {
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={ServiceStack} />
             <Drawer.Screen name="DETAILS" component={Details} />
-
-            {/* <Drawer.Screen name="AI ENGINE" component={AIEngine} /> */}
-
-
             <Drawer.Screen name="AI ENGINE" component={AIEngine} />
-            
-            
             <Drawer.Screen name="CUSTOM" component={Custom} />
             
             {/* <Drawer.Screen name="VehicleDetails2" component={VehicleDetails2} /> PRUEBA */}

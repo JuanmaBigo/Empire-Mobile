@@ -6,9 +6,7 @@ import aceleracion from "../images/aceleracion.png"
 import auto from "../images/detailsImage.png"
 import { useDispatch, useSelector } from "react-redux"
 import { useRoute } from "@react-navigation/native"
-import carActions from "../store/model/actions.js"
 
-const { getOne } = carActions
 
 export default function Details() {
 /*   const data = useSelector((store) => store.model.car)

@@ -1,52 +1,33 @@
-import { View, Text, Image, TouchableOpacity, ImageBackground, Animated,  } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ImageBackground, Animated, } from 'react-native'
 import carActions from '../store/Cars/Actions.js'
-import  Constants  from 'expo-constants'
+import Constants from 'expo-constants'
 import { StyleSheet } from 'react-native'
 import { useEffect, useState } from 'react'
 import { useFocusEffect } from '@react-navigation/native'
-import { useRoute } from '@react-navigation/native'
 import { useSelector, useDispatch } from 'react-redux'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import React from 'react'
 
+import modelActions from "../store/model/actions.js"
+const { getOne } = modelActions
+
 
 export default function Custom() {
-const { get_car } = carActions
-const route = useRoute();
 
-// const carId = route.params.carId
-const dispatch = useDispatch()
-let car = useSelector(store => store.car)
-console.log(car)
+    const dispatch = useDispatch()
+    let car = useSelector(store => store.model.car)
+    console.log(car)
 
-// useFocusEffect(React.useCallback(() => {
-//     async function getData() {
-//         try {
-//             const value = await AsyncStorage.getItem('token');
-//             getCar(value)
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
-//     getData();
-// }, []));
 
-function getCar(token) {
-    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-    dispatch(get_car({ _id: '64377af4968955ae96af8fa8' , headers: headers }))
-}
-useEffect( () => {
-    getCar(token)
-}, [token]);
 
     return (
         <View style={styles.container} >
             <View style={styles.titleContainer}>
-            <Image
-             source={require('../assets/image/text-customize.png')}
-             style={styles.titleImg}
-             resizeMode="contain"
-            />   
+                <Image
+                    source={require('../assets/image/text-customize.png')}
+                    style={styles.titleImg}
+                    resizeMode="contain"
+                />
             </View>
             {/* <View>
                 {car.values((repo) => (<View key={repo.car_id}>
@@ -54,9 +35,9 @@ useEffect( () => {
                      </View>) )}
             </View> */}
             <Image
-            source={require('../assets/image/custome-car.png')}
-            style={styles.carImg}
-            resizeMode="contain"
+                source={require('../assets/image/custome-car.png')}
+                style={styles.carImg}
+                resizeMode="contain"
             />
 
         </View>
@@ -90,6 +71,6 @@ const styles = StyleSheet.create({
     },
     carImg: {
         width: '100%',
- 
+
     },
 })
