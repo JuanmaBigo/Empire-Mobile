@@ -1,11 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { REACT_APP_URL } from '@env'
 
 const getAllCars = createAsyncThunk(
   'getAll',
   async () => {
     try {
-      const response = await axios.get(`https://empire-back.onrender.com/api/cars`);
+      let url = `${REACT_APP_URL}cars`;
+      const response = await axios.get(url);
       return {
         cars: response.data.car,
       };
@@ -16,8 +18,8 @@ const getAllCars = createAsyncThunk(
 
   const getOne = createAsyncThunk('getOne', async ({_id})=>{
     try{
-      const response = await axios.get(`http://localhost:8080/api/cars/${_id}`)
-      //console.log(response)
+      let url = `${REACT_APP_URL}cars/${_id}`;
+      const response = await axios.get(url)
       return{
         cars: response.data.response,
         
@@ -31,4 +33,3 @@ const getAllCars = createAsyncThunk(
 const actions = { getAllCars,getOne};
 
 export default actions;
-

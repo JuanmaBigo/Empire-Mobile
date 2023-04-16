@@ -14,51 +14,51 @@ export default function SelectModel() {
     const cars = useSelector((store) => store.model?.cars);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [searchFilters, setSearchFilters] = useState({
-      searchTerm: '',
-      selectedCategory: '',
+        searchTerm: '',
+        selectedCategory: '',
     });
-  
+
     const categories = useSelector((store) => store.category?.categories);
     const [filteredCars, setFilteredCars] = useState([]);
-  
+
     useEffect(() => {
-      Promise.all([dispatch(getAllCars()), dispatch(getAllCategories())]).catch(
-        (error) => console.log(error)
-      );
+        Promise.all([dispatch(getAllCars()), dispatch(getAllCategories())]).catch(
+            (error) => console.log(error)
+        );
     }, [dispatch]);
-  
+
     useEffect(() => {
-      const filtered = cars?.filter((car) => {
-        const categoryIdMatch =
-          searchFilters.selectedCategory === '' ||
-          car?.category_id?._id.toString() ===
-            searchFilters.selectedCategory.toString();
-        const nameMatch = car?.name
-          .toLowerCase()
-          .includes(searchFilters.searchTerm.toLowerCase());
-        return categoryIdMatch && nameMatch;
-      });
-      setFilteredCars(filtered || []);
-      setCurrentIndex(0);
+        const filtered = cars?.filter((car) => {
+            const categoryIdMatch =
+                searchFilters.selectedCategory === '' ||
+                car?.category_id?._id.toString() ===
+                searchFilters.selectedCategory.toString();
+            const nameMatch = car?.name
+                .toLowerCase()
+                .includes(searchFilters.searchTerm.toLowerCase());
+            return categoryIdMatch && nameMatch;
+        });
+        setFilteredCars(filtered || []);
+        setCurrentIndex(0);
     }, [cars, searchFilters]);
-  
+
     const prevSlide = () => {
-      const lastIndex = (filteredCars?.length || 0) - 1;
-      const shouldResetIndex = currentIndex === 0;
-      const index = shouldResetIndex ? lastIndex : currentIndex - 1;
-      setCurrentIndex(index);
+        const lastIndex = (filteredCars?.length || 0) - 1;
+        const shouldResetIndex = currentIndex === 0;
+        const index = shouldResetIndex ? lastIndex : currentIndex - 1;
+        setCurrentIndex(index);
     };
-  
+
     const nextSlide = () => {
-      const lastIndex = (filteredCars?.length || 0) - 1;
-      const shouldResetIndex = currentIndex === lastIndex;
-      const index = shouldResetIndex ? 0 : currentIndex + 1;
-      setCurrentIndex(index);
+        const lastIndex = (filteredCars?.length || 0) - 1;
+        const shouldResetIndex = currentIndex === lastIndex;
+        const index = shouldResetIndex ? 0 : currentIndex + 1;
+        setCurrentIndex(index);
     };
-  
+
     const photo = filteredCars?.[currentIndex]?.photo;
     const name = filteredCars?.[currentIndex]?.name;
-    
+
 
     return (
         <ScrollView style={{ backgroundColor: 'rgb(237, 237, 237)', height: '100%', width: '100%' }}>
@@ -92,34 +92,36 @@ export default function SelectModel() {
                         <Text >There is no vehicle that matches your search</Text>
                     </View>
                 ) : (
-                    <View style={{ flex: 1, flexDirection: 'column', marginTop:500}}>
-                        <TouchableOpacity style={{justifyContent:'center',flex:1,}} to={`/details/${filteredCars?.[currentIndex]?._id}`}>
+                    <View style={{ flex: 1, flexDirection: 'column', marginTop: 500 }}>
+                        <TouchableOpacity style={{ justifyContent: 'center', flex: 1, }} to={`/details/${filteredCars?.[currentIndex]?._id}`}>
                             {photo && (
-                                <Image 
-                                style={{width:400, height:400,marginTop:-500  , flex:1,justifyContent:'center' }}
+                                <Image
+                                    style={{ width: 400, height: 400, marginTop: -500, flex: 1, justifyContent: 'center' }}
                                     source={{ uri: photo }}
-                                    alt={`Car model ${filteredCars?.[currentIndex]?.model}`}/>
+                                    alt={`Car model ${filteredCars?.[currentIndex]?.model}`} />
                             )}
                             {name && (
-                                <Text style={{ color:'white',fontSize:20,padding:15,textAlign:"center",
-                                width:420,height:70,backgroundColor:'rgba(6, 6, 6, 0.588)'}} >
+                                <Text style={{
+                                    color: 'white', fontSize: 20, padding: 15, textAlign: "center",
+                                    width: 420, height: 70, backgroundColor: 'rgba(6, 6, 6, 0.588)'
+                                }} >
                                     {name}
                                 </Text>
                             )}
                         </TouchableOpacity>
-                        <View style={{flex: 1, flexDirection: 'row', justifyContent:'space-between', marginTop:-50}}>
-                        <TouchableOpacity onClick={prevSlide}>
-                            <Image style={{width:60, height:30 }} source={require('../assets/image/image/prev.png')} alt='prev' />
-                        </TouchableOpacity>
-                        <TouchableOpacity onClick={nextSlide}>
-                            <Image style={{width:60, height:30}} source={require('../assets/image/image/next.png')} alt='prev' />
-                        </TouchableOpacity>
-                        </View>  
+                        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginTop: -50 }}>
+                            <TouchableOpacity onClick={prevSlide}>
+                                <Image style={{ width: 60, height: 30 }} source={require('../assets/image/image/prev.png')} alt='prev' />
+                            </TouchableOpacity>
+                            <TouchableOpacity onClick={nextSlide}>
+                                <Image style={{ width: 60, height: 30 }} source={require('../assets/image/image/next.png')} alt='prev' />
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 )}
             </View>
         </ScrollView>
     );
-    
+
 }
 
