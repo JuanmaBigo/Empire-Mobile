@@ -24,7 +24,7 @@ export const store = configureStore({
         showModalEdit: modalEdit_reducer,
         drawerReducer: drawerReducer,
         car: carReducer,
-        colors: colorsReducer
+        colors: colorsReducer,
         model: modelReducer,
         category: categoriesReducer
     }
