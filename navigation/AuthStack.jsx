@@ -62,6 +62,14 @@ function VehiclesStack() {
     );
 }
 
+function AIStack() {
+    return (
+    <Stack.Navigator>
+        <Stack.Screen name='AI ENGINE SCREEN' component={AIEngine} options={{ headerShown: false }} />
+        <Stack.Screen name='DETAILSAI' component={Details} options={{ headerShown: false }} />
+    </Stack.Navigator>
+    )
+}
 
 export default function AppStack() {
 
@@ -83,7 +91,7 @@ export default function AppStack() {
             <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={ServiceStack} />
-            <Drawer.Screen name="AI ENGINE" component={AIEngine} />
+            <Drawer.Screen name="AI ENGINE" component={AIStack} />
             <Drawer.Screen name="LOGIN" component={Login} />
             <Drawer.Screen name="REGISTER" component={Register} />
 

@@ -58,9 +58,9 @@ export default function Details(props) {
               >
               </Video>
               <Text style={styles.detailsTitle}>{data.name}</Text>
-              <TouchableOpacity onPress={navigateToCustom} style={{ position: 'absolute', left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', top: 500, shadowColor: '#070707', shadowOffset: { width: 0, height: 0, }, shadowOpacity: 1, shadowRadius: 3, elevation: 3, }}>
+              <TouchableOpacity onPress={navigateToCustom} style={{ position: 'absolute', left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', bottom: 100, shadowColor: '#070707', shadowOffset: { width: 0, height: 0, }, shadowOpacity: 1, shadowRadius: 3, elevation: 3, }}>
                 <LinearGradient colors={['#54555A', 'rgba(52, 52, 52, 0.747)']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} >
-                  <Text style={{ fontSize: 22, fontWeight: 400, paddingHorizontal: 15, paddingVertical: 5, color: '#fff', textTransform: 'uppercase' }}>Build your {data.name}</Text>
+                  <Text style={{ fontSize: 20, fontWeight: 400, paddingHorizontal: 15, paddingVertical: 5, color: '#fff', textTransform: 'uppercase' }}>Build your {data.name}</Text>
                 </LinearGradient>
               </TouchableOpacity>
             </View>
@@ -109,7 +109,7 @@ export default function Details(props) {
 
               <TouchableOpacity onPress={navigateToCustom} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', shadowColor: '#070707', shadowOffset: { width: 1, height: 1, }, shadowOpacity: 1, shadowRadius: 3, elevation: 3, }}>
                 <LinearGradient colors={['#54555A', 'rgba(52, 52, 52, 0.747)']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} >
-                  <Text style={{ fontSize: 22, fontWeight: 400, paddingHorizontal: 15, paddingVertical: 5, color: '#fff', textTransform: 'uppercase' }}>Build your {data.name}</Text>
+                  <Text style={{ fontSize: 24, fontWeight: 400, paddingHorizontal: 15, paddingVertical: 5, color: '#fff', textTransform: 'uppercase' }}>Build your {data.name}</Text>
                 </LinearGradient>
               </TouchableOpacity>
 
