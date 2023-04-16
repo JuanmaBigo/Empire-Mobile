@@ -40,7 +40,7 @@ export default function AIEngine() {
     }
 
     const goToVehiclePage = () => {
-        navigation.navigate('DETAILS', { id: dataCar._id });
+        navigation.navigate('DETAILSAI', { id: dataCar._id });
     }
 
 
