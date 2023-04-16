@@ -13,9 +13,12 @@ import ArtAndCulture from '../screens/ArtAndCulture'
 import Service from '../screens/Service'
 import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
+import ContactUs from '../screens/ContactUs';
+import Confirm from '../screens/Confirm';
 
 import Videito from '../screens/Videoo';
 import Custom from '../screens/Custom'
+import SelectModel from '../screens/SelectModel';
 
 
 const Drawer = createDrawerNavigator();
@@ -38,6 +41,24 @@ function CultureStack() {
 
     );
 }
+function ServiceStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Service' component={Service} options={{ headerShown: false }} />
+            <Stack.Screen name='ContactUs' component={ContactUs} options={{ headerShown: false }} />
+            <Stack.Screen name='Confirm' component={Confirm} options={{ headerShown: false }} />
+        </Stack.Navigator>
+    );
+}
+
+   
+function VehiclesStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
+            <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
+        </Stack.Navigator>
+    );}
 
 
 export default function AppStack() {
@@ -57,11 +78,14 @@ export default function AppStack() {
             }}>
 
             <Drawer.Screen name="HOME" component={HomeStack} />
-            <Drawer.Screen name="VEHICLES" component={Vehicles} />
+            <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
+<<<<<<< HEAD
             <Drawer.Screen name="CONTACT US" component={Service} />
+=======
+            <Drawer.Screen name="SERVICES" component={ServiceStack} />
+>>>>>>> 30b704efff78e246fdaacf286967d107edd350e3
             {/* <Drawer.Screen name="AI ENGINE" component={AIEngine} /> */}
-
             <Drawer.Screen name="LOGIN" component={Login} />
             <Drawer.Screen name="REGISTER" component={Register} />
 
