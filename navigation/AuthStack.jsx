@@ -27,8 +27,8 @@ const Stack = createStackNavigator();
 function HomeStack() {
     return (
         <Stack.Navigator >
-            <Stack.Screen name="Hero" component={Hero} options={{ headerShown: false }} /> 
-            <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} /> 
+            <Stack.Screen name="Hero" component={Hero} options={{ headerShown: false }} />
+            <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         </Stack.Navigator>
     );
 }
@@ -51,14 +51,15 @@ function ServiceStack() {
     );
 }
 
-   
+
 function VehiclesStack() {
     return (
         <Stack.Navigator>
             <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
             <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
         </Stack.Navigator>
-    );}
+    );
+}
 
 
 export default function AppStack() {
@@ -80,11 +81,7 @@ export default function AppStack() {
             <Drawer.Screen name="HOME" component={HomeStack} />
             <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
-<<<<<<< HEAD
-            <Drawer.Screen name="CONTACT US" component={Service} />
-=======
             <Drawer.Screen name="SERVICES" component={ServiceStack} />
->>>>>>> 30b704efff78e246fdaacf286967d107edd350e3
             {/* <Drawer.Screen name="AI ENGINE" component={AIEngine} /> */}
             <Drawer.Screen name="LOGIN" component={Login} />
             <Drawer.Screen name="REGISTER" component={Register} />
