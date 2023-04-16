@@ -13,7 +13,7 @@ import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
 import ContactUs from '../screens/ContactUs'
 import Confirm from '../screens/Confirm'
-import Details from  "../screens/Details"
+import Details from "../screens/Details"
 
 
 import Custom from '../screens/Custom'
@@ -58,10 +58,21 @@ function VehiclesStack() {
         <Stack.Navigator>
             <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
             <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
-            <Drawer.Screen name="DETAILS" component={Details} options={{ headerShown: false }}/>
+            <Stack.Screen name="DETAILS" component={Details} options={{ headerShown: false }} />
+            {/* Aca debe ir custom */}
         </Stack.Navigator>
     );
 }
+
+function AIStack() {
+    return (
+    <Stack.Navigator>
+        <Stack.Screen name='AI ENGINE SCREEN' component={AIEngine} options={{ headerShown: false }} />
+        <Stack.Screen name='DETAILSAI' component={Details} options={{ headerShown: false }} />
+    </Stack.Navigator>
+    )
+}
+
 export default function AppStack() {
 
     return (
@@ -82,12 +93,10 @@ export default function AppStack() {
             <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={ServiceStack} />
-            <Drawer.Screen name="DETAILS" component={Details} />
-            <Drawer.Screen name="AI ENGINE" component={AIEngine} />
+            <Drawer.Screen name="AI ENGINE" component={AIStack} />
             <Drawer.Screen name="CUSTOM" component={Custom} />
-            
-            {/* <Drawer.Screen name="VehicleDetails2" component={VehicleDetails2} /> PRUEBA */}
-            {/* <Drawer.Screen name="CART" component={HomeStack} /> */}
+
+            {/* <Drawer.Screen name="CART" component={Cart} /> */}
 
         </Drawer.Navigator>
     )
