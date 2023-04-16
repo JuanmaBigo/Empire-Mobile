@@ -58,6 +58,7 @@ function VehiclesStack() {
         <Stack.Navigator>
             <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
             <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
+            <Drawer.Screen name="DETAILS" component={Details} options={{ headerShown: false }}/>
         </Stack.Navigator>
     );
 }

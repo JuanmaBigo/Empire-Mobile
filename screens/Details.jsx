@@ -1,79 +1,112 @@
-import React, { useEffect } from 'react'
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Video } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import motor from "../images/motor.png"
 import top from "../images/topvelocidad.png"
 import aceleracion from "../images/aceleracion.png"
 import auto from "../images/detailsImage.png"
 import { useDispatch, useSelector } from "react-redux"
-import { useRoute } from "@react-navigation/native"
+import carActions from "../store/model/actions.js"
+import { Video } from 'expo-av'
+
+const { getOne } = carActions
 
 
-export default function Details() {
-/*   const data = useSelector((store) => store.model.car)
-  console.log(data)
+export default function Details(props) {
+  // let id = props.route.params.id
+  id = '64377af5968955ae96af8ffc'
+  console.log(id)
+
   const dispatch = useDispatch()
-  const route = useRoute()
+  const [loaded, setLoaded] = useState(false)
+  const [reload, setReload] = useState(false)
+
+  const data = useSelector((store) => store.model.car)
   useEffect(() => {
-    if (data) {
-      dispatch(getOne({ _id: route.params.id }))
-    }
-  }, []) */
+    dispatch(getOne({ _id: id }))
+  }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (data._id === id) {
+        console.log(data)
+        setLoaded(true)
+      } else {
+        setReload(!reload)
+      }
+    }, 100);
+  }, [reload])
+
+
+
 
   return (
     <ScrollView>
-      <View style={styles.mainDetails}>
-        <View style={styles.firstDetails}>
-          <View style={styles.mainDetails}>
-          <Image source={auto} style={styles.photoDetails} />
-           {/*  <Video source={{ uri: data.video }} style={styles.photoDetails} loop muted autoPlay /> */}
-            <Text style={styles.detailsTitle}>SARASA</Text>
-            <TouchableOpacity style={styles.Detailsbtn}><Text>Build your car</Text></TouchableOpacity>
+      {loaded? 
+        <View style={styles.mainDetails}>
+          <View style={styles.firstDetails}>
+            <View style={styles.mainDetails}>
+              <Video
+                source={{ uri: data.video }}
+                style={{ flex: 1, backgroundColor: 'black' }}
+                rate={1.0}
+                volume={0.0}
+                isMuted={true}
+                resizeMode="cover"
+                shouldPlay
+                isLooping
+                useNativeControls={false}
+                onError={(error) => console.log(error)}
+              >
+              </Video>
+              <Text style={styles.detailsTitle}>{data.name}</Text>
+              <TouchableOpacity style={styles.Detailsbtn}><Text>Build your {data.name}</Text></TouchableOpacity>
+            </View>
+            <View style={styles.speedDetails}>
+              <View style={styles.carDetails}>
+                <Image source={motor} style={styles.icon} />
+                <Text style={styles.speedText}>POWER: {data.hp}CV</Text>
+              </View>
+              <View style={styles.carDetails}>
+                <Image source={top} style={styles.icon} />
+                <Text style={styles.speedText}>MAX. SPEED: {data.top_speed}Km/h</Text>
+              </View>
+              <View style={styles.carDetails}>
+                <Image source={aceleracion} style={styles.icon} />
+                <Text style={styles.speedText}>0-100Km/h: {data.acceleration}s</Text>
+              </View>
+            </View>
           </View>
-          <View style={styles.speedDetails}>
-            <View style={styles.carDetails}>
-              <Image source={motor} style={styles.icon} />
-              <Text style={styles.speedText}>Potencia: CV</Text>
+          <View style={styles.textDetails}>
+            <View style={styles.descriptionDetails}>
+              <Image source={{ uri: data.photo_description1 }} style={styles.desciption1} />
+              <View style={styles.desciptiontext1}>
+                <Text>Overview</Text>
+                <Text>{data.description1}</Text>
+              </View>
             </View>
-            <View style={styles.carDetails}>
-              <Image source={top} style={styles.icon} />
-              <Text style={styles.speedText}>Top Speed: Km/h</Text>
-            </View>
-            <View style={styles.carDetails}>
-              <Image source={aceleracion} style={styles.icon} />
-              <Text style={styles.speedText}>0-100Km/h: s</Text>
-            </View>
-          </View>
-        </View>
-        <View style={styles.textDetails}>
-          <View style={styles.descriptionDetails}>
-           {/*  <Image source={{ uri: data.photo_description1 }} style={styles.desciption1} /> */}
-            <View style={styles.desciptiontext1}>
-              <Text >Overview</Text>
-              <Text>ASKJGDKAWLDLI</Text>
+            <View style={styles.descriptionDetails}>
+              <View style={styles.desciptiontext2}>
+                <Text >Exterior</Text>
+                <Text>{data.description2}</Text>
+              </View>
+              <Image source={{ uri: data.photo_description2 }} style={styles.description2} />
             </View>
           </View>
-          <View style={styles.descriptionDetails}>
-            <View style={styles.desciptiontext2}>
-              <Text >Exterior</Text>
-              <Text>awldilHLAWKNDLIAWHODIAWÑDJAWOJDÑOAWIJDOP</Text>
-            </View>
-           {/*  <Image source={{ uri: data.photo_description2 }} style={styles.description2} /> */}
+          <View style={styles.Btn}>
+            <TouchableOpacity style={styles.lastBtn}><Text>Build your {data.name}</Text></TouchableOpacity>
           </View>
-        </View>
-        <View style={styles.Btn}>
-          <TouchableOpacity style={styles.lastBtn}><Text>Build your CAR</Text></TouchableOpacity>
-        </View>
-      </View>
+        </View> : null }
+
     </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
-  firstDetails:{
+  firstDetails: {
     height: 800,
   },
-  speedText:{
-    color:"#ffffff",
+  speedText: {
+    color: "#ffffff",
   },
   mainDetails: {
     height: '80%',
@@ -88,17 +121,17 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold',
     marginTop: 100,
-    marginLeft:150,
-    color:'#ffffff'
+    marginLeft: 150,
+    color: '#ffffff'
 
   },
   Detailsbtn: {
     padding: 10,
     borderRadius: 5,
     marginTop: 20,
-    flex:1,
+    flex: 1,
     position: 'absolute',
-  
+
     left: 200,
     top: 500,
     color: '#000000',
@@ -113,9 +146,9 @@ const styles = StyleSheet.create({
   },
   speedDetails: {
     display: 'flex',
-    flexDirection:"row",
+    flexDirection: "row",
     justifyContent: 'space-around',
-    alignContent:'space-around',
+    alignContent: 'space-around',
     alignItems: 'center',
     height: '20%',
     backgroundColor: '#000000',
@@ -173,7 +206,7 @@ const styles = StyleSheet.create({
   lastBtn: {
     marginTop: 40,
     display: 'flex',
-    color:"#ffffff",
+    color: "#ffffff",
     width: 250,
     height: 100,
     textDecorationLine: 'none',

@@ -1,5 +1,4 @@
 import { View, Text, Image, TouchableOpacity, ImageBackground, Animated, } from 'react-native'
-import carActions from '../store/Cars/Actions.js'
 import Constants from 'expo-constants'
 import { StyleSheet } from 'react-native'
 import { useEffect, useState } from 'react'
