@@ -6,14 +6,8 @@ const getAllCars = createAsyncThunk(
   'getAll',
   async () => {
     try {
-<<<<<<< HEAD
-
-      const response = await axios.get(`https://empire-back.onrender.com/api/cars`);
-
-=======
       let url = `${REACT_APP_URL}cars`;
       const response = await axios.get(url);
->>>>>>> 1688db9b8c7a1fbaa4455e4eeec7cdc3f6341b77
       return {
         cars: response.data.car,
       };
@@ -38,10 +32,4 @@ const getAllCars = createAsyncThunk(
 
 const actions = { getAllCars,getOne};
 
-<<<<<<< HEAD
-
 export default actions;
-
-=======
-export default actions;
->>>>>>> 1688db9b8c7a1fbaa4455e4eeec7cdc3f6341b77
