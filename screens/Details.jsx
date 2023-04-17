@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
-import motor from "../images/motor.png"
-import top from "../images/topvelocidad.png"
-import aceleracion from "../images/aceleracion.png"
-import auto from "../images/detailsImage.png"
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Dimensions } from 'react-native'
+import motor from "../assets/image/motor-icon.png"
+import velocimeter from "../assets/image/velocimeter-icon.png"
+import acceleration from "../assets/image/timer-icon.png"
 import { useDispatch, useSelector } from "react-redux"
 import carActions from "../store/model/actions.js"
 import { Video } from 'expo-av'
+import { LinearGradient } from 'expo-linear-gradient';
 
 const { getOne } = carActions
-
+const windowHeight = Dimensions.get('window').height;
 
 export default function Details(props) {
-  // let id = props.route.params.id
-  id = '64377af5968955ae96af8ffc'
-  console.log(id)
+  let id = props.route.params.id
+  // id = '64377af4968955ae96af8fc4'
 
   const dispatch = useDispatch()
   const [loaded, setLoaded] = useState(false)
@@ -28,22 +27,22 @@ export default function Details(props) {
   useEffect(() => {
     setTimeout(() => {
       if (data._id === id) {
-        console.log(data)
         setLoaded(true)
       } else {
         setReload(!reload)
       }
-    }, 100);
+    }, 200);
   }, [reload])
 
+  function navigateToCustom() {
 
-
+  }
 
   return (
     <ScrollView>
-      {loaded? 
-        <View style={styles.mainDetails}>
-          <View style={styles.firstDetails}>
+      {loaded ?
+        <ScrollView>
+          <View style={styles.view1}>
             <View style={styles.mainDetails}>
               <Video
                 source={{ uri: data.video }}
@@ -59,54 +58,83 @@ export default function Details(props) {
               >
               </Video>
               <Text style={styles.detailsTitle}>{data.name}</Text>
-              <TouchableOpacity style={styles.Detailsbtn}><Text>Build your {data.name}</Text></TouchableOpacity>
+              <TouchableOpacity onPress={navigateToCustom} style={{ position: 'absolute', left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', bottom: 100, shadowColor: '#070707', shadowOffset: { width: 0, height: 0, }, shadowOpacity: 1, shadowRadius: 3, elevation: 3, }}>
+                <LinearGradient colors={['#54555A', 'rgba(52, 52, 52, 0.747)']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} >
+                  <Text style={{ fontSize: 20, fontWeight: 400, paddingHorizontal: 15, paddingVertical: 5, color: '#fff', textTransform: 'uppercase' }}>Build your {data.name}</Text>
+                </LinearGradient>
+              </TouchableOpacity>
             </View>
             <View style={styles.speedDetails}>
-              <View style={styles.carDetails}>
-                <Image source={motor} style={styles.icon} />
-                <Text style={styles.speedText}>POWER: {data.hp}CV</Text>
-              </View>
-              <View style={styles.carDetails}>
-                <Image source={top} style={styles.icon} />
-                <Text style={styles.speedText}>MAX. SPEED: {data.top_speed}Km/h</Text>
-              </View>
-              <View style={styles.carDetails}>
-                <Image source={aceleracion} style={styles.icon} />
-                <Text style={styles.speedText}>0-100Km/h: {data.acceleration}s</Text>
-              </View>
+              <LinearGradient colors={['#ABABAB', '#000000']} end={{ x: -0.5, y: 0.5 }} start={{ x: 3, y: 3 }} style={{display: 'flex', flexDirection: "row", justifyContent: 'space-around', alignItems: 'center', height: '100%', width: '100%'}}>
+                <View style={styles.carDetails}>
+                  <Image source={motor} style={styles.icon} />
+                  <View style={{ display: 'flex', alignItems: 'center' }}>
+                    <Text style={styles.speedText}>POWER</Text>
+                    <Text style={{ color: '#fff', fontWeight: 300 }}>{data.hp}CV</Text>
+                  </View>
+                </View>
+                <View style={styles.carDetails}>
+                  <Image source={velocimeter} style={styles.icon} />
+                  <View style={{ display: 'flex', alignItems: 'center' }}>
+                    <Text style={styles.speedText}>MAX. SPEED</Text>
+                    <Text style={{ color: '#fff', fontWeight: 300 }}>{data.top_speed}Km/h</Text>
+                  </View>
+                </View>
+                <View style={styles.carDetails}>
+                  <Image source={acceleration} style={styles.icon} />
+                  <View style={{ display: 'flex', alignItems: 'center' }}>
+                    <Text style={styles.speedText}>0-100Km/h</Text>
+                    <Text style={{ color: '#fff', fontWeight: 300 }}>{data.acceleration}s</Text>
+                  </View>
+                </View>
+              </LinearGradient>
             </View>
           </View>
-          <View style={styles.textDetails}>
-            <View style={styles.descriptionDetails}>
-              <Image source={{ uri: data.photo_description1 }} style={styles.desciption1} />
-              <View style={styles.desciptiontext1}>
-                <Text>Overview</Text>
-                <Text>{data.description1}</Text>
+
+          <ScrollView style={styles.view2}>
+            <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 50, marginBottom: 30 }}>
+              <View style={styles.descriptionDetails}>
+                <View style={styles.desciptiontext1}>
+                  <Text style={{ fontWeight: 600, fontSize: 18 }}>OVERVIEW</Text>
+                  <Text style={{ fontSize: 15, fontWeight: 400 }}>{data.description1}</Text>
+                </View>
+                <Image source={{ uri: data.photo_description1 }} style={styles.desciption1} />
               </View>
-            </View>
-            <View style={styles.descriptionDetails}>
-              <View style={styles.desciptiontext2}>
-                <Text >Exterior</Text>
-                <Text>{data.description2}</Text>
+              <View style={styles.descriptionDetails}>
+                <View style={styles.desciptiontext2}>
+                  <Text style={{ fontWeight: 600, fontSize: 18 }}>EXTERIOR</Text>
+                  <Text style={{ fontSize: 15, fontWeight: 400, marginBottom: 30 }}>{data.description2}</Text>
+                </View>
               </View>
-              <Image source={{ uri: data.photo_description2 }} style={styles.description2} />
+
+              <TouchableOpacity onPress={navigateToCustom} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', shadowColor: '#070707', shadowOffset: { width: 1, height: 1, }, shadowOpacity: 1, shadowRadius: 3, elevation: 3, }}>
+                <LinearGradient colors={['#54555A', 'rgba(52, 52, 52, 0.747)']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} >
+                  <Text style={{ fontSize: 24, fontWeight: 400, paddingHorizontal: 15, paddingVertical: 5, color: '#fff', textTransform: 'uppercase' }}>Build your {data.name}</Text>
+                </LinearGradient>
+              </TouchableOpacity>
+
             </View>
-          </View>
-          <View style={styles.Btn}>
-            <TouchableOpacity style={styles.lastBtn}><Text>Build your {data.name}</Text></TouchableOpacity>
-          </View>
-        </View> : null }
+          </ScrollView>
+        </ScrollView> : null}
+
 
     </ScrollView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-  firstDetails: {
-    height: 800,
+  view1: {
+    flex: 1,
+    height: windowHeight + 40,
+  },
+  view2: {
+    flex: 1,
+    minHeight: windowHeight + 40,
+    display: 'flex',
   },
   speedText: {
     color: "#ffffff",
+    fontWeight: 500,
   },
   mainDetails: {
     height: '80%',
@@ -120,35 +148,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
     fontSize: 25,
     fontWeight: 'bold',
+    textTransform: 'uppercase',
     marginTop: 100,
-    marginLeft: 150,
+    marginLeft: 30,
     color: '#ffffff'
-
-  },
-  Detailsbtn: {
-    padding: 10,
-    borderRadius: 5,
-    marginTop: 20,
-    flex: 1,
-    position: 'absolute',
-
-    left: 200,
-    top: 500,
-    color: '#000000',
-    alignSelf: 'flex-start',
-    width: 150,
-    height: 61,
-    backgroundColor: '#ffffff',
-    textDecorationLine: 'none',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 28,
   },
   speedDetails: {
     display: 'flex',
     flexDirection: "row",
     justifyContent: 'space-around',
-    alignContent: 'space-around',
     alignItems: 'center',
     height: '20%',
     backgroundColor: '#000000',
@@ -156,8 +164,10 @@ const styles = StyleSheet.create({
   carDetails: {
     display: 'flex',
     alignItems: 'center',
-    height: '20%',
-    color: '#ffffff',
+  },
+  icon: {
+    height: 25,
+    width: 25,
   },
   speedImage: {
     width: 50,
@@ -167,36 +177,28 @@ const styles = StyleSheet.create({
   textDetails: {
     display: 'flex',
     flexDirection: 'column',
-    overflowX: 'hidden',
   },
   descriptionDetails: {
     display: 'flex',
+    alignItems: 'center',
+    width: '95%',
   },
   desciption1: {
-    width: '60%',
-    height: 400,
-    overflow: 'hidden',
-    position: 'relative',
+    width: '100%',
+    height: 300,
   },
   desciptiontext1: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 30,
-    marginTop: 65,
+    gap: 15,
+    marginBottom: 30,
   },
   desciptiontext2: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 30,
-    marginTop: 65,
-    marginLeft: 30,
-  },
-  description2: {
-    width: '60%',
-    height: 400,
-    overflow: 'hidden',
-    position: 'relative',
-    left: 290,
+    gap: 15,
+    marginTop: 30,
+    width: '95%',
   },
   Btn: {
     display: 'flex',
