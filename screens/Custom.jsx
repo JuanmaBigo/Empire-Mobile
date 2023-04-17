@@ -20,56 +20,9 @@ export default function Custom() {
 
 
     return (
-        <View style={styles.container} >
-            <View style={styles.titleContainer}>
-                <Image
-                    source={require('../assets/image/text-customize.png')}
-                    style={styles.titleImg}
-                    resizeMode="contain"
-                />
-            </View>
-            {/* <View>
-                {car.values((repo) => (<View key={repo.car_id}>
-                    <Image source={require(repo.photo)} style={styles.carImg}/>
-                     </View>) )}
-            </View> */}
-            <Image
-                source={require('../assets/image/custome-car.png')}
-                style={styles.carImg}
-                resizeMode="contain"
-            />
-
+        <View  >
+        <Text></Text>
         </View>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#1E1E1E",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center"
-    },
-    titleContainer: {
-        width: "100%",
-        height: "20%",
-        display: "flex",
-        marginTop: 20,
-        direction: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        borderWidth: 5
-
-    },
-    titleImg: {
-        width: '80%',
-        height: 150,
-        marginRight: '1%'
-    },
-    carImg: {
-        width: '100%',
-
-    },
-})
