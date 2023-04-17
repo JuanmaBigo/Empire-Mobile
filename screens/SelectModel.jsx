@@ -30,17 +30,19 @@ export default function SelectModel() {
     useEffect(() => {
         const filtered = cars?.filter((car) => {
             const categoryIdMatch =
-                searchFilters.selectedCategory === '' ||
+                searchFilters?.selectedCategory === '' ||
                 car?.category_id?._id.toString() ===
-                searchFilters.selectedCategory.toString();
-            const nameMatch = car?.name
+                searchFilters?.selectedCategory?.toString();
+            const nameMatch = car?.name && car?.name
                 .toLowerCase()
-                .includes(searchFilters.searchTerm.toLowerCase());
+                .includes(searchFilters?.searchTerm?.toLowerCase());
+
             return categoryIdMatch && nameMatch;
         });
         setFilteredCars(filtered || []);
         setCurrentIndex(0);
     }, [cars, searchFilters]);
+
 
     const prevSlide = () => {
         const lastIndex = (filteredCars?.length || 0) - 1;
@@ -69,11 +71,13 @@ export default function SelectModel() {
                 <View>
                     <TextInput
                         style={{ backgroundColor: ' rgba(6, 6, 6, 0.588)', width: 300, height: 50, marginTop: 50, marginLeft: 50 }}
-                        type="text"
+                        keyboardType="default"
                         placeholder="FILTER BY NAME"
                         placeholderTextColor="white"
                         value={searchFilters.searchTerm}
-                        onChange={(e) => setSearchFilters({ ...searchFilters, searchTerm: e.target.value })} />
+                        onChangeText={(text) => setSearchFilters({ ...searchFilters, searchTerm: text })}
+                    />
+
                 </View>
                 <View >
                     <Picker
@@ -110,10 +114,10 @@ export default function SelectModel() {
                             )}
                         </TouchableOpacity>
                         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginTop: -50 }}>
-                            <TouchableOpacity onClick={prevSlide}>
+                            <TouchableOpacity onPress={prevSlide}>
                                 <Image style={{ width: 60, height: 30 }} source={require('../assets/image/image/prev.png')} alt='prev' />
                             </TouchableOpacity>
-                            <TouchableOpacity onClick={nextSlide}>
+                            <TouchableOpacity onPress={nextSlide}>
                                 <Image style={{ width: 60, height: 30 }} source={require('../assets/image/image/next.png')} alt='prev' />
                             </TouchableOpacity>
                         </View>
