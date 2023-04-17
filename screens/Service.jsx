@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 export default function Service() {
     const navigation = useNavigation();
     function handleNavigate() {
-        navigation.navigate('Contac Us')
+        navigation.navigate('ContactUs')
     }
 
     return (

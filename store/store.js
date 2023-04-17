@@ -1,31 +1,29 @@
 import { configureStore } from "@reduxjs/toolkit";
-import textReducer from './search/reducer'
-import mangaReducer from './Mangas/reducer'
-import checkReducer from './checks/reducer'
-import alertReducer from './Alert/reducer'
-import authorReducer from './AuthorProfile/reducer'
-import getmangas_reducer from './MyMangas/reducer'
-import modalDelete_reducer from  './ModalDelete/reducer'
-import modalEdit_reducer from './ModalEdit/reducer'
 import drawerReducer from './Drawer/reducer' 
+<<<<<<< HEAD
 import modelReducer from './model/reducer'
 import categoriesReducer from './categories/reducer'
 
+=======
+import modelReducer from "./model/reducer"
+import categoriesReducer from './categories/reducer'
+import colorReducer from "./color/reducer";
+import rimsReducer from "./rims/reducer.js";
+>>>>>>> 1688db9b8c7a1fbaa4455e4eeec7cdc3f6341b77
 
 export const store = configureStore({
     reducer:{
-        text: textReducer,
-        mangas: mangaReducer,
-        checks: checkReducer, 
-        alert: alertReducer,
-        author:authorReducer,
-        getmangas: getmangas_reducer,
-        showModalDelete: modalDelete_reducer,
-        showModalEdit: modalEdit_reducer,
         drawerReducer: drawerReducer,
+<<<<<<< HEAD
 
         model: modelReducer,
         category: categoriesReducer
 
+=======
+        model: modelReducer,
+        category: categoriesReducer,
+        colors: colorReducer,
+        rim: rimsReducer,
+>>>>>>> 1688db9b8c7a1fbaa4455e4eeec7cdc3f6341b77
     }
 })

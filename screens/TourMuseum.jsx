@@ -1,65 +1,26 @@
-/* import React from 'react';
-import { View, StyleSheet, Text } from 'react-native'; */
-/* import VideoPlayer from 'react-native-video'; */
-// import YouTube from 'react-native-youtube';
-/* 
+import React from 'react';
+import { View, Text } from 'react-native';
+import { Video } from 'expo-av'
+
+
 export default function TourMuseum() {
   return (
-    <View style={styles.museumTourSection}> */
-      {/*    <VideoPlayer
-        source={{ uri: 'https://www.youtube.com/watch?v=rlbjVAr5SYI&t=8s' }}
-        style={styles.videoMuseumTour}
+    <View style={{ width: '100%', height: '100%', backgroundColor: 'black'}}>
+      <Video
+        source={{ uri: 'https://drive.google.com/uc?export=download&id=1wWYg3IrvXhP71_nLKs0TSMqt_AN3x9A2' }}
+        style={{ flex: 1 }}
+        rate={1.0}
+        volume={0.0}
+        isMuted={true}
         resizeMode="cover"
-        repeat={true}
-        muted={true}
-      /> */}
-      {/* <YouTube
-        videoId="rlbjVAr5SYI&t"
-        style={styles.videoMuseumTour}
-        resizeMode="cover"
-        repeat={true}
-        muted={true}
-      /> */}
-  {/*     <Text>Video de tour museo</Text>
+        shouldPlay
+        isLooping
+        useNativeControls={true}
+        onError={(error) => console.log(error)}
+      >
+      <Text style={{color: 'white', fontSize: 20, fontWeight: 300, paddingTop: 300, paddingLeft: 50}}>Loading virtual tour...</Text>
+      </Video>
     </View>
   );
 }
-const styles = StyleSheet.create({
-  museumTourSection: {
-    position: 'relative',
-    height: '100%',
-    width: '100%',
-    overflow: 'hidden',
-    zIndex: 1,
-  },
-  videoMuseumTour: {
-    minWidth: '100%',
-    minHeight: '100%',
-  },
-}); */}
-import React from 'react';
-import { View, StyleSheet, WebView } from 'react-native';
 
-export default function TourMuseum() {
-  const videoUrl = 'https://www.youtube.com/watch?v=rlbjVAr5SYI&t=8s'; // Reemplaza VIDEO_ID con el ID del video de YouTube que deseas mostrar
-
-  return (
-    <View style={styles.container}>
-      <WebView
-        source={{ uri: videoUrl }}
-        style={styles.webView}
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
-      />
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  webView: {
-    flex: 1,
-  },
-});

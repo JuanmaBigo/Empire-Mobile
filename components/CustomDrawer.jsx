@@ -38,6 +38,7 @@ const CustomDrawer = (props) => {
         setLoading(true)
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let url = REACT_APP_URL + 'auth/signout'
+        
         try {
             await axios.post(url, null, headers)
                 .then(res => {

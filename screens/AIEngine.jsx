@@ -40,13 +40,13 @@ export default function AIEngine() {
     }
 
     const goToVehiclePage = () => {
-        navigation.navigate('VehicleDetails2', { id: dataCar._id });
+        navigation.navigate('DETAILSAI', { id: dataCar._id });
     }
 
 
     return (
         <View style={{ flex: 1 }}>
-            <ImageBackground source={require('../assets/image/AI-bg.jpg')} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'red' }}>
+            <ImageBackground source={require('../assets/image/AI-bg.jpg')} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black' }}>
 
                 <View style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
 

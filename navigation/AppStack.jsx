@@ -11,7 +11,10 @@ import ArtAndCulture from '../screens/ArtAndCulture'
 import Service from '../screens/Service'
 import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
-import Details from  "../screens/Details"
+import ContactUs from '../screens/ContactUs'
+import Confirm from '../screens/Confirm'
+import Details from "../screens/Details"
+
 
 import Custom from '../screens/Custom'
 import SelectModel from '../screens/SelectModel';
@@ -39,15 +42,37 @@ function CultureStack() {
         </Stack.Navigator>
     );
 }
+function ServiceStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='Service' component={Service} options={{ headerShown: false }} />
+            <Stack.Screen name='ContactUs' component={ContactUs} options={{ headerShown: false }} />
+            <Stack.Screen name='Confirm' component={Confirm} options={{ headerShown: false }} />
+        </Stack.Navigator>
+
+    );
+}
 
 function VehiclesStack() {
     return (
         <Stack.Navigator>
             <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
             <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
+            <Stack.Screen name="DETAILS" component={Details} options={{ headerShown: false }} />
+            {/* Aca debe ir custom */}
         </Stack.Navigator>
     );
 }
+
+function AIStack() {
+    return (
+    <Stack.Navigator>
+        <Stack.Screen name='AI ENGINE SCREEN' component={AIEngine} options={{ headerShown: false }} />
+        <Stack.Screen name='DETAILSAI' component={Details} options={{ headerShown: false }} />
+    </Stack.Navigator>
+    )
+}
+
 export default function AppStack() {
 
     return (
@@ -67,19 +92,11 @@ export default function AppStack() {
             <Drawer.Screen name="HOME" component={Home} />
             <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
-            <Drawer.Screen name="SERVICES" component={Service} />
-            <Drawer.Screen name="DETAILS" component={Details} />
-
-            {/* <Drawer.Screen name="AI ENGINE" component={AIEngine} /> */}
-
-
-            <Drawer.Screen name="AI ENGINE" component={AIEngine} />
-            
-            
+            <Drawer.Screen name="SERVICES" component={ServiceStack} />
+            <Drawer.Screen name="AI ENGINE" component={AIStack} />
             <Drawer.Screen name="CUSTOM" component={Custom} />
-            
-            {/* <Drawer.Screen name="VehicleDetails2" component={VehicleDetails2} /> PRUEBA */}
-            {/* <Drawer.Screen name="CART" component={HomeStack} /> */}
+
+            {/* <Drawer.Screen name="CART" component={Cart} /> */}
 
         </Drawer.Navigator>
     )

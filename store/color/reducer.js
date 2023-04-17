@@ -1,24 +1,23 @@
 import { createReducer } from "@reduxjs/toolkit";
-import modalEdit from "./actions";
+import getAllColorsActions from './actions.js'
 
-const { showModalEdit } = modalEdit
-
+const { getAllColors } = getAllColorsActions
 const initialState = {
-    state: false,
-    id: ''
-}
+    colors: [],
+};
+
 
 const reducer = createReducer(
     initialState,
     (builder) => builder
         .addCase(
-            showModalEdit,
-            ( state, actions ) => {
+            getAllColors.fulfilled,
+            (state, action) => {
                 let newState = {
                     ...state,
-                    state: actions.payload.state,
-                    id: actions.payload.id
+                    colors: action.payload.colors
                 }
+                //console.log(action.payload)
                 return newState
             }
         )
