@@ -1,11 +1,11 @@
-import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+/* import React from 'react';
+import { View, StyleSheet, Text } from 'react-native'; */
 /* import VideoPlayer from 'react-native-video'; */
 // import YouTube from 'react-native-youtube';
-
+/* 
 export default function TourMuseum() {
   return (
-    <View style={styles.museumTourSection}>
+    <View style={styles.museumTourSection}> */
       {/*    <VideoPlayer
         source={{ uri: 'https://www.youtube.com/watch?v=rlbjVAr5SYI&t=8s' }}
         style={styles.videoMuseumTour}
@@ -20,7 +20,7 @@ export default function TourMuseum() {
         repeat={true}
         muted={true}
       /> */}
-      <Text>Video de tour museo</Text>
+  {/*     <Text>Video de tour museo</Text>
     </View>
   );
 }
@@ -35,5 +35,31 @@ const styles = StyleSheet.create({
   videoMuseumTour: {
     minWidth: '100%',
     minHeight: '100%',
+  },
+}); */}
+import React from 'react';
+import { View, StyleSheet, WebView } from 'react-native';
+
+export default function TourMuseum() {
+  const videoUrl = 'https://www.youtube.com/watch?v=rlbjVAr5SYI&t=8s'; // Reemplaza VIDEO_ID con el ID del video de YouTube que deseas mostrar
+
+  return (
+    <View style={styles.container}>
+      <WebView
+        source={{ uri: videoUrl }}
+        style={styles.webView}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  webView: {
+    flex: 1,
   },
 });
