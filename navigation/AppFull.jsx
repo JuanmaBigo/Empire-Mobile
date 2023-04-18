@@ -5,8 +5,7 @@ import AuthStack from './AuthStack.jsx';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSelector, useDispatch } from 'react-redux';
-import mangaActions from '../store/Mangas/actions'
-const { read_mangas } = mangaActions
+
 
 
 
@@ -20,7 +19,6 @@ export default function AppFull() {
             .then(res => {
                 setToken(res);
             })
-        dispatch(read_mangas({ inputText: '', inputPage: 1 }))
     }, [state]);
 
     return (
