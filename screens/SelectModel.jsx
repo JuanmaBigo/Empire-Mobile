@@ -5,14 +5,14 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../store/model/actions.js';
 import actionCat from '../store/categories/actions.js';
- import { useNavigation } from '@react-navigation/native'; 
+import { useNavigation } from '@react-navigation/native';
 
 const { getAllCars } = actions;
 const { getAllCategories } = actionCat;
 
 export default function SelectModel() {
     const dispatch = useDispatch();
-   const navigation = useNavigation() 
+    const navigation = useNavigation()
     const cars = useSelector((store) => store.model?.cars);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [searchFilters, setSearchFilters] = useState({
@@ -66,7 +66,7 @@ export default function SelectModel() {
     const goToVehiclePage = () => {
         navigation.navigate('DETAILS', { id: filteredCars?.[currentIndex]?._id});
     }
- 
+
 
 
     return (
@@ -107,7 +107,7 @@ export default function SelectModel() {
                         <TouchableOpacity style={{ justifyContent: 'center', flex: 1, }} onPress={ goToVehiclePage }>
                             {photo && (
                                 <Image
-                                    style={{ width: 400, height: 400, marginTop: -500, flex: 1, justifyContent: 'center' }}
+                                    style={{ width: 400, height: 400, marginTop: -500, flex: 1, justifyContent: 'center', objectFit: 'contain' }}
                                     source={{ uri: photo }}
                                     alt={`Car model ${filteredCars?.[currentIndex]?.model}`} />
                             )}
