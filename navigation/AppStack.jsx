@@ -14,8 +14,6 @@ import TourMuseum from '../screens/TourMuseum';
 import ContactUs from '../screens/ContactUs'
 import Confirm from '../screens/Confirm'
 import Details from "../screens/Details"
-
-
 import Custom from '../screens/Custom'
 import SelectModel from '../screens/SelectModel';
 // import VehicleDetails2 from '../screens/VehicleDetails2';
@@ -59,7 +57,7 @@ function VehiclesStack() {
             <Stack.Screen name='Vehicles' component={Vehicles} options={{ headerShown: false }} />
             <Stack.Screen name='Select Model' component={SelectModel} options={{ headerShown: false }} />
             <Stack.Screen name="DETAILS" component={Details} options={{ headerShown: false }} />
-            {/* Aca debe ir custom */}
+            <Stack.Screen name="CUSTOM" component={Custom} options={{ headerShown: false }} />
         </Stack.Navigator>
     );
 }
@@ -94,10 +92,7 @@ export default function AppStack() {
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="SERVICES" component={ServiceStack} />
             <Drawer.Screen name="AI ENGINE" component={AIStack} />
-            <Drawer.Screen name="CUSTOM" component={Custom} />
-
-            {/* <Drawer.Screen name="CART" component={Cart} /> */}
-
+  
         </Drawer.Navigator>
     )
 }

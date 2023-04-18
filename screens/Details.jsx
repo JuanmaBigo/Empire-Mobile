@@ -7,14 +7,14 @@ import { useDispatch, useSelector } from "react-redux"
 import carActions from "../store/model/actions.js"
 import { Video } from 'expo-av'
 import { LinearGradient } from 'expo-linear-gradient';
-
+import { useNavigation } from '@react-navigation/native'; 
 const { getOne } = carActions
 const windowHeight = Dimensions.get('window').height;
 
 export default function Details(props) {
   let id = props.route.params.id
   // id = '64377af4968955ae96af8fc4'
-
+  const navigation = useNavigation()
   const dispatch = useDispatch()
   const [loaded, setLoaded] = useState(false)
   const [reload, setReload] = useState(false)
@@ -35,7 +35,7 @@ export default function Details(props) {
   }, [reload])
 
   function navigateToCustom() {
-
+    navigation.navigate('CUSTOM', {id: id});
   }
 
   return (
