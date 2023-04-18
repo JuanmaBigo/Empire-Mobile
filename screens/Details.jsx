@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from "react-redux"
 import carActions from "../store/model/actions.js"
 import { Video } from 'expo-av'
 import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native'; 
+import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect } from '@react-navigation/core';
 const { getOne } = carActions
 const windowHeight = Dimensions.get('window').height;
 
@@ -20,9 +21,11 @@ export default function Details(props) {
   const [reload, setReload] = useState(false)
 
   const data = useSelector((store) => store.model.car)
-  useEffect(() => {
-    dispatch(getOne({ _id: id }))
-  }, [])
+  useFocusEffect(
+    React.useCallback(() => {
+      dispatch(getOne({ _id: id }))
+    }, [])
+  );
 
   useEffect(() => {
     setTimeout(() => {
@@ -35,7 +38,7 @@ export default function Details(props) {
   }, [reload])
 
   function navigateToCustom() {
-    navigation.navigate('CUSTOM', {id: id});
+    navigation.navigate('CUSTOM', { id: id });
   }
 
   return (
@@ -65,7 +68,7 @@ export default function Details(props) {
               </TouchableOpacity>
             </View>
             <View style={styles.speedDetails}>
-              <LinearGradient colors={['#ABABAB', '#000000']} end={{ x: -0.5, y: 0.5 }} start={{ x: 3, y: 3 }} style={{display: 'flex', flexDirection: "row", justifyContent: 'space-around', alignItems: 'center', height: '100%', width: '100%'}}>
+              <LinearGradient colors={['#ABABAB', '#000000']} end={{ x: -0.5, y: 0.5 }} start={{ x: 3, y: 3 }} style={{ display: 'flex', flexDirection: "row", justifyContent: 'space-around', alignItems: 'center', height: '100%', width: '100%' }}>
                 <View style={styles.carDetails}>
                   <Image source={motor} style={styles.icon} />
                   <View style={{ display: 'flex', alignItems: 'center' }}>

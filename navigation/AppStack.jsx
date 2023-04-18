@@ -92,9 +92,8 @@ export default function AppStack() {
             <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
             <Drawer.Screen name="CART" component={ShoppingCart} />
-            <Drawer.Screen name="SERVICES" component={ServiceStack} />
+            <Drawer.Screen name="CONTACT US" component={ServiceStack} />
             <Drawer.Screen name="AI ENGINE" component={AIStack} />
-  
         </Drawer.Navigator>
     )
 }
