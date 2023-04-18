@@ -31,7 +31,6 @@ export default function Custom(props) {
     const [selectedOption, setSelectedOption] = useState('option 1');
     const [selectedOptionRim, setSelectedOptionRim] = useState('option rim 1');
     const [photoVehicle, setPhotoVehicle] = useState('')
-
     const dispatch = useDispatch()
 
     useFocusEffect(
@@ -85,7 +84,6 @@ export default function Custom(props) {
     }
 
 
-
     const color1 = { uri: colors[0]?.color_code }
     const color2 = { uri: colors[1]?.color_code }
     const color3 = { uri: colors[2]?.color_code }
@@ -121,25 +119,35 @@ export default function Custom(props) {
         }
     };
 
-    let token = AsyncStorage.getItem('token');
-    let headers = { headers: { 'Authorization': `Bearer ${token}` } };
-    let url = `${REACT_APP_URL}items`;
-
     async function handleItem() {
-        let data = {
-            car_id: car_id,
-            color_id: selectedColor,
-            rim_id: selectedRim
-        }
+        let token = AsyncStorage.getItem('token')
+            .then(res => {
+                token = res;
+                let headers = { headers: { 'Authorization': `Bearer ${token}` } };
+                let url = `${REACT_APP_URL}items`;
+                let data = {
+                    car_id: car_id,
+                    color_id: selectedColor,
+                    rim_id: selectedRim,
+                    bought: false
+                }
 
-        try {
-            await axios.post(url, data, headers)
-        } catch (error) {
-            console.log(error)
-        }
-        console.log(data)
+                try {
+                    axios.post(url, data, headers)
+                } catch (error) {
+                    console.log(error)
+                }
+                console.log(data)
+                console.log(url)
+                console.log(token)
+                console.log(headers)
+            })
+
+
 
     }
+
+
     return (
         <ScrollView style={{ backgroundColor: 'rgb(237, 237, 237)', height: '100%', width: '100%' }}>
             <View >
@@ -182,9 +190,9 @@ export default function Custom(props) {
             </View>
             <View>
                 <Text style={{ backgroundColor: 'black', width: 420, color: 'white', padding: 35, textAlign: 'center', fontSize: 20, fontWeight: 600 }} >RESUME</Text>
-                <View style={{ flexDirection: 'column', backgroundColor: 'black'}} >
+                <View style={{ flexDirection: 'column', backgroundColor: 'black' }} >
                     <View>
-                        <Image source={photoVehicle} alt="Imagen de ejemplo"   />
+                        <Image source={photoVehicle} alt="Imagen de ejemplo" />
                         <Text style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', fontSize: 20, padding: 18, fontWeight: 600 }}>{car?.name}</Text>
                         <Text style={{ backgroundColor: 'rgba(29,38,51,0.5)', color: 'white', padding: 5, textAlign: 'center', fontSize: 18, fontWeight: 300 }}>${(car?.price)?.toLocaleString("es-VE")}</Text>
                         <Text style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', fontSize: 18, padding: 18 }}>{colors[parseInt(selectedOption.charAt(selectedOption.length - 1)) - 1]?.name}</Text>
@@ -193,12 +201,12 @@ export default function Custom(props) {
                         <Text style={{ backgroundColor: 'rgba(29,38,51,0.5)', color: 'white', padding: 5, textAlign: 'center', fontSize: 18, fontWeight: 300 }}>${(rims[parseInt(selectedOptionRim.charAt(selectedOptionRim.length - 1)) - 4]?.price_rim)?.toLocaleString("es-VE")}</Text>
                         <Text style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', fontSize: 20, padding: 18 }}>GRAND TOTAL</Text>
                         <Text style={{ backgroundColor: 'rgba(29,38,51,0.5)', color: 'white', padding: 5, textAlign: 'center', fontSize: 20, fontWeight: 500 }}>${(car?.price + colors[parseInt(selectedOption.charAt(selectedOption.length - 1)) - 1]?.price_color + rims[parseInt(selectedOptionRim.charAt(selectedOptionRim.length - 1)) - 4]?.price_rim)?.toLocaleString("es-VE")}</Text>
-                        
+
                         <Text style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', fontSize: 20, padding: 18 }}>RESERVATION PAYMENT</Text>
                         <Text style={{ backgroundColor: 'rgba(29,38,51,0.5)', color: 'white', padding: 5, textAlign: 'center', fontSize: 20, fontWeight: 500 }}>${(car?.reservePrice + colors[parseInt(selectedOption.charAt(selectedOption.length - 1)) - 1]?.price_color + rims[parseInt(selectedOptionRim.charAt(selectedOptionRim.length - 1)) - 4]?.price_rim)?.toLocaleString("es-VE")}</Text>
-                        
+
                         <TouchableOpacity onPress={handleItem} style={{ backgroundColor: 'black', marginBottom: 30, marginTop: 30 }}>
-                            <Text style={{ backgroundColor: 'white', width: 250, alignSelf: 'center', color: 'black', padding: 20, textAlign: 'center', fontSize: 20, fontWeight: 600}}>ADD TO CART</Text>
+                            <Text style={{ backgroundColor: 'white', width: 250, alignSelf: 'center', color: 'black', padding: 20, textAlign: 'center', fontSize: 20, fontWeight: 600 }}>ADD TO CART</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
