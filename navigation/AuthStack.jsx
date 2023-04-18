@@ -16,6 +16,7 @@ import TourMuseum from '../screens/TourMuseum';
 
 import Videito from '../screens/Videoo';
 import Custom from '../screens/Custom'
+import ShoppingCart from '../screens/ShoppingCart'
 
 
 const Drawer = createDrawerNavigator();
@@ -66,6 +67,7 @@ export default function AppStack() {
             <Drawer.Screen name="REGISTER" component={Register} />
 
             <Drawer.Screen name="CUSTOM" component={Custom} />
+            <Drawer.Screen name="CART" component={ShoppingCart} />
             <Drawer.Screen name="VIDEO" component={Videito} />
 
 

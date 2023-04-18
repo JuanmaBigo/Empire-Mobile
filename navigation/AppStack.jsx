@@ -13,6 +13,7 @@ import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
 
 import Custom from '../screens/Custom'
+import ShoppingCart from '../screens/ShoppingCart'
 // import VehicleDetails2 from '../screens/VehicleDetails2';
 
 
@@ -62,6 +63,7 @@ export default function AppStack() {
             
             
             <Drawer.Screen name="CUSTOM" component={Custom} />
+            <Drawer.Screen name="CART" component={ShoppingCart} />
             
             {/* <Drawer.Screen name="VehicleDetails2" component={VehicleDetails2} /> PRUEBA */}
             {/* <Drawer.Screen name="CART" component={HomeStack} /> */}
