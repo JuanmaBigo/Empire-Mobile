@@ -15,6 +15,7 @@ import ContactUs from '../screens/ContactUs'
 import Confirm from '../screens/Confirm'
 import Details from "../screens/Details"
 import Custom from '../screens/Custom'
+import ShoppingCart from '../screens/ShoppingCart'
 import SelectModel from '../screens/SelectModel';
 // import VehicleDetails2 from '../screens/VehicleDetails2';
 
@@ -90,6 +91,7 @@ export default function AppStack() {
             <Drawer.Screen name="HOME" component={Home} />
             <Drawer.Screen name="VEHICLES" component={VehiclesStack} />
             <Drawer.Screen name="ART & CULTURE" component={CultureStack} />
+            <Drawer.Screen name="CART" component={ShoppingCart} />
             <Drawer.Screen name="SERVICES" component={ServiceStack} />
             <Drawer.Screen name="AI ENGINE" component={AIStack} />
   

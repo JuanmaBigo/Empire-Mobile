@@ -15,9 +15,9 @@ import AIEngine from '../screens/AIEngine'
 import TourMuseum from '../screens/TourMuseum';
 import ContactUs from '../screens/ContactUs';
 import Confirm from '../screens/Confirm';
-
 import Details from '../screens/Details';
 import Custom from '../screens/Custom'
+import ShoppingCart from '../screens/ShoppingCart'
 import SelectModel from '../screens/SelectModel';
 
 
@@ -95,6 +95,8 @@ export default function AppStack() {
             <Drawer.Screen name="AI ENGINE" component={AIStack} />
             <Drawer.Screen name="LOGIN" component={Login} />
             <Drawer.Screen name="REGISTER" component={Register} />
+
+
 
         </Drawer.Navigator>
     )

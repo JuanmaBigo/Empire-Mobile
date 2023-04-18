@@ -31,7 +31,6 @@ export default function Custom(props) {
     const [selectedOption, setSelectedOption] = useState('option 1');
     const [selectedOptionRim, setSelectedOptionRim] = useState('option rim 1');
     const [photoVehicle, setPhotoVehicle] = useState('')
-
     const dispatch = useDispatch()
 
     useFocusEffect(
@@ -132,11 +131,12 @@ async function handleItem() {
         rim_id: selectedRim
     }
 
-    // try {
-    //     await axios.post(url, data, headers)
-    // } catch (error) {
-    //     console.log(error)
-    // }
+    try {
+        await axios.post(url, data, headers)
+        
+    } catch (error) {
+        console.log(error)
+    }
     console.log(data)
 
 }
