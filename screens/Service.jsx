@@ -14,7 +14,7 @@ export default function Service() {
             <ImageBackground source={require('../assets/image/services-bg.jpg')} style={{ width: '100%', height: '100%', display: 'flex',  alignItems: 'center', justifyContent: 'space-between' }}>
                 <View style={styles.titlesMuseumPage}>
                     <Image
-                        source={require('../assets/image/title-empire-service.png')}
+                        source={require('../assets/image/contact-us-text.png')}
                         style={styles.empireMuseumPageImg}
                         resizeMode="contain"
                     />

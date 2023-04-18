@@ -14,8 +14,8 @@ export default function Home() {
     function handleNavigateArt() {
         navigation.navigate('ART & CULTURE')
     }
-    function handleNavigateService() {
-        navigation.navigate('SERVICE')
+    function handleNavigateAI() {
+        navigation.navigate('AI ENGINE')
     }
 
     return (
@@ -29,20 +29,19 @@ export default function Home() {
             </View>
 
             <View style={{ flex: 1, width: '100%', height: '100%', }}>
-                <TouchableOpacity onPress={handleNavigateArt} activeOpacity={0.8} style={{ width: '100%', height: '100%', }}>
+                <TouchableOpacity onPress={handleNavigateAI} activeOpacity={0.8} style={{ width: '100%', height: '100%', }}>
                     <ImageBackground source={{ uri: 'https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/gateway-family/concept/2020_06/header_c.jpg' }} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
-                            <Text style={styles.artTitle}>ART &</Text>
-                            <Text style={[styles.title, {marginTop: -15}]}>CULTURE</Text>
+                        <Text style={styles.title}>AI ENGINE</Text>
                         </View>
                     </ImageBackground>
                 </TouchableOpacity>
             </View>
 
             <View style={{ flex: 1, width: '100%', height: '100%', }}>
-                <TouchableOpacity onPress={handleNavigateService} activeOpacity={0.8} style={{ width: '100%', height: '100%', }}>
+                <TouchableOpacity onPress={handleNavigateArt} activeOpacity={0.8} style={{ width: '100%', height: '100%', }}>
                     <ImageBackground source={{ uri: 'https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/face_react/after_sales/service/after_sales_service_hb_1.jpg' }} style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Text style={styles.title}>SERVICE</Text>
+                        <Text style={styles.title}>ART & CULTURE</Text>
                     </ImageBackground>
                 </TouchableOpacity>
             </View>
